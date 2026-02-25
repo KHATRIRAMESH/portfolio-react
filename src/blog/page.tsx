@@ -20,7 +20,9 @@ export const Blog = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/api/post");
+        const response = await fetch(
+          "https://express-backend-blue.vercel.app/api/post",
+        );
         const result = await response.json();
         const data: Post[] = result.data;
         const message: string = result.message;
