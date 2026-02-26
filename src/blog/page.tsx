@@ -1,3 +1,4 @@
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 import { useEffect, useState } from "react";
 import { Footer } from "../components/Footer.tsx";
 import { Header } from "../components/Header.tsx";
@@ -20,9 +21,7 @@ export const Blog = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          "https://express-backend-blue.vercel.app/api/post",
-        );
+        const response = await fetch(`${apiUrl}/api/post`);
         const result = await response.json();
         const data: Post[] = result.data;
         const message: string = result.message;
